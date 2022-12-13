@@ -72,10 +72,10 @@ The keypair used to sign the message must match the public key in the oracle pro
 
 ### VEGA Desktop Wallet
 1. Open your Vega desktop wallet
-- Click the keypair you want to use
-- Enter your message in the text area
-- Click ‘sign’
-- Click the signed message to copy it to your clipboard
+2. Click the keypair you want to use
+3. Enter your message in the text area
+4. Click ‘sign’
+5. Click the signed message to copy it to your clipboard
 
 ### VEGA CLI Wallet
 To generate a signed message using local wallet, run the following command:
