@@ -1,9 +1,3 @@
-# To-do
-- Finish intro
-- Flesh out all statuses
-- Check how it would look on GitHub 
-
-
 # Vega Oracle Profiles
 
 Oracle profiles are an optional, extra layer of information about oracles on the Vega network, including:
