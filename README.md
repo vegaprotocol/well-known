@@ -1,3 +1,9 @@
+# To-do
+- Finish intro
+- Flesh out all statuses
+- Check how it would look on GitHub 
+
+
 # Vega Oracle Profiles
 
 Oracle profiles are an optional, extra layer of information about oracles on the Vega network, including:
@@ -19,7 +25,7 @@ Profiles are also used to flag oracle performance issues.
 2. Use the oracle's public key as the filename
 3. Populate the template with the oracle details
 4. Optional: Provide [proofs](#proofs) for social media accounts
-3. Create a pull request and mark it as ready for review
+3. Open a pull request and mark it as ready for review
 
 When merged, the details in the file may be shown alongside other oracle info in apps on the Vega network.
 
@@ -41,7 +47,7 @@ The following markdown formatting is accepted:
 - Strikethrough
 
 ### Proofs
-Link to [signed messages](#How_to_sign_a_message) on websites and social media accounts to associate them with the oracle. Each proof is verified by a panel of repo admins.
+Link to [signed messages](#how-to-sign-a-message) on websites and social media accounts to associate them with the oracle. Each proof is verified by a panel of repo admins.
 
 You are welcome to submit any kind of proof. Common proofs include:
 
@@ -89,8 +95,6 @@ vegawallet sign --key ReplaceWithTheOraclePublicKey --wallet ReplaceWithTheWalle
 ## Status
 
 Oracles typically have the status `active`.
-
-Other statuses may be labelled with the fol
 
 Apps on the Vega network may choose to expose these statuses to users.
 
