@@ -98,3 +98,9 @@ Apps on the Vega network may choose to expose these statuses to users.
 | Retired | This public key is no longer in use. |
 |  |  |
 |  |  |
+
+## Help
+
+If you need help creating an oracle profile, you can find it in [the Vega forum](https://community.vega.xyz/).
+
+You are also welome to make suggestions or highlight problems by [raising an issue](https://github.com/vegaprotocol/well-known/issues/new).
