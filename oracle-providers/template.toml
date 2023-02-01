@@ -65,11 +65,10 @@ available = true
 # In future a section like this could allow specifying a filter templates plus some variables
 # and parameters to allow a UI to be presented to set up a good oracle spec. for the oracle
 
-vars.VALID_TIMESTAMP_RANGE = 600  # allow data to be up to 10 mins after settlement date/time
-
-params.SETTLEMENT_DATETIME = { type: "datetime" }
-params.TICKER = { type: "list", values: ["LINK", "UNI", "ETH", "BTC"] }
-# params.TICKER = { type: "list", values_url: "https://acme.io/tickers.json" }
+VALID_TIMESTAMP_RANGE = 600  # allow data to be up to 10 mins after settlement date/time
+SETTLEMENT_DATETIME = { input_type = "datetime" }
+TICKER = { input_type = "list", values = ["LINK", "UNI", "ETH", "BTC"] }
+# or TICKER = { input_type = "list", values_url = "https://acme.io/tickers.json" }
 
 [[data.filters]]
 template = """
