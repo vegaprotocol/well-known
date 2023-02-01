@@ -67,7 +67,7 @@ available = true
 
 vars.VALID_TIMESTAMP_RANGE = 600  # allow data to be up to 10 mins after settlement date/time
 
-prams.SETTLEMENT_DATETIME = { type: "datetime" }
+params.SETTLEMENT_DATETIME = { type: "datetime" }
 params.TICKER = { type: "list", values: ["LINK", "UNI", "ETH", "BTC"] }
 # params.TICKER = { type: "list", values_url: "https://acme.io/tickers.json" }
 
