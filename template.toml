@@ -1,0 +1,108 @@
+# filename somrthing like: "${PUBKEY} ACME Oracle Co.toml"
+
+name = "Dan's Magic Oracle Co."
+url ="https://zombo.com"
+description_md = """
+Some markdown describing the oracle provider.
+
+Twitter: @FacesPics2
+"""
+
+[oracle]
+public_key = "69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f"
+status =  "UNKNOWN|GOOD|SUSPICIOUS|MALICIOUS|RETIRED|COMPROMISED"
+status_reason = "Some proofs currently offline" # char limit, allow limited Markdown eg links
+first_verified = 20220101T00:00Z
+last_verified = 20221231T00:00Z
+
+# Scenarios:
+# - all verified proofs are now down: status = flagged
+# - some verified proofs are now down: status = flagged?
+# - verified proofs were down but now back: status = good
+# - URL used to point to valid proof now points to something else or an invalid proof (because malicious or key change)
+# - oralce provider changes their key - new file for v2, caution flag for v2, mark proofs unavailable if needed, update description
+# - compromised key
+
+
+[[proofs]]
+type = "twitter"
+format = "URL"
+url = "https://twitter.com/vegaprotocol/status/956833487230730241"
+available = true
+
+[[proofs]]
+type = "web"
+format = "URL"
+url = "https://acme.io/proof.txt"
+available = true
+
+[[proofs]]
+type = "github"
+format = "URL"
+url = "https://github.com/......."
+available = true
+
+[[proofs]]
+type = "key"
+format = "signed_message"
+pubkey = "xxxxxxx"
+message = "SOMEHEX"
+available = true
+
+[[proofs]]
+type = "linkedin"
+format = "URL"
+url = "https://linkedin.com/......."
+available = true
+
+# etc...
+# note a new proof type can be added that isn't checkable by any system
+# the PR approver should be checking manually and documenting in the PR
+# comments should be used if the proof isn't self explanatory
+
+
+[data]
+# In future a section like this could allow specifying a filter templates plus some variables
+# and parameters to allow a UI to be presented to set up a good oracle spec. for the oracle
+
+vars.VALID_TIMESTAMP_RANGE = 600  # allow data to be up to 10 mins after settlement date/time
+
+prams.SETTLEMENT_DATETIME = { type: "datetime" }
+params.TICKER = { type: "list", values: ["LINK", "UNI", "ETH", "BTC"] }
+# params.TICKER = { type: "list", values_url: "https://acme.io/tickers.json" }
+
+[[data.filters]]
+template = """
+{
+	"key": {
+		"name": "prices.${TICKER}.value",
+		"type": "TYPE_INTEGER"
+	},
+	"conditions": [
+		{
+			"value": "0",
+			"operator": "OPERATOR_GREATER_THAN"
+		}
+	]
+}
+"""
+
+[[data.filters]]
+template = """
+{
+	"key": {
+		"name": "prices.${TICKER}.timestamp",
+		"type": "TYPE_TIMESTAMP"
+	},
+	"conditions": [
+		{
+			"value": "${SETTLEMENT_DATETIME}",
+			"operator": "OPERATOR_GREATER_THAN"
+		},
+		{
+			"value": "${SETTLEMENT_DATETIME + VALID_TIMESTAMP_RANGE}",
+			"operator": "OPERATOR_GREATER_THAN"
+		}
+	]
+}
+"""
