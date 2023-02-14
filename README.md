@@ -1,106 +1,23 @@
-# Vega Oracle Profiles
+# well-known
 
-Oracle profiles are an optional, extra layer of information about oracles on the Vega network, including:
+This is a repository for maintaining data about well known entities to the Vega community.
 
-- Oracle name
-- Description
-- URL
-- [Proofs](#proofs), like verified social media accounts
 
-Oracle developers can use profiles to explain their methodology and demonstrate their reputation, to build trust.
+## Data stored here
 
-Apps on the Vega network can include profiles to help users make decisions about markets.
+- [Oracle providers](./oracle-providers/): details about public keys of known oracle providers
 
-Profiles are also used to flag oracle performance issues.
 
-## Quick start
+## Disclaimer
 
-1. Copy the [template oracle profile](#link)
-2. Use the oracle's public key as the filename
-3. Populate the template with the oracle details
-4. Optional: Provide [proofs](#proofs) for social media accounts
-3. Open a pull request and mark it as ready for review
+TODO: disclaimer about the data here and verification processes, and possibility it's wrong or outdated
 
-When merged, the details in the file may be shown alongside other oracle info in apps on the Vega network.
 
-## Submission guidelines
+## Using this repository
 
-### Public key
-The public key defined in the market proposal.
+TODO: rules for adding and changing data, reviewing PRs, etc.
 
-As one key can act as an oracle for multiple markets, the oracle profile may be associated with more than one market.
 
-### Description
-The following markdown formatting is accepted:
+## Tools and apps incorporating this data
 
-- Headings
-- Links
-- Bold
-- Underline
-- Italic
-- Strikethrough
-
-### Proofs
-Link to [signed messages](#how-to-sign-a-message) on websites and social media accounts to associate them with the oracle. Each proof is verified by a panel of repo admins.
-
-You are welcome to submit any kind of proof. Common proofs include:
-
-- **Twitter**\
-Link to a tweet containing the Twitter username as a signed message
-- **Website**\
-Link to a .txt file, at the website root, containing the website URL as a signed message
-- **Discord**\
-Link to a comment in [the Vega Protocol Discord channel](https://discord.com/channels/720571334798737489/) containing the Discord username as a signed message
-- **Vega forums**\
-Link to a comment in [the Vega forum](https://community.vega.xyz/) containing the forum username as a signed message
-- **GitHub**\
-Link to a file in a GitHub repo containing  the GitHub username as a signed message
-- **Vega or Ethereum key/address**\
-???
-- **ETH or other decentralised address/domain name**\
-???
-
-## How to sign a message
-
-The keypair used to sign the message must match the public key in the oracle profile and market spec.
-
-### VEGA Desktop Wallet
-1. Open your Vega desktop wallet
-2. Click the keypair you want to use
-3. Enter your message in the text area
-4. Click ‘sign’
-5. Click the signed message to copy it to your clipboard
-
-### VEGA CLI Wallet
-To generate a signed message using local wallet, run the following command:
-
-#### MacOS & Linux
-
-```
-./vegawallet sign --key ReplaceWithTheOraclePublicKey --wallet ReplaceWithTheWalletUsername --message ReplaceWithTheMessage
-```
-
-#### Windows
-
-```
-vegawallet sign --key ReplaceWithTheOraclePublicKey --wallet ReplaceWithTheWalletUsername --message ReplaceWithTheMessage
-```
-
-## Status
-
-Oracles typically have the status `active`.
-
-Apps on the Vega network may choose to expose these statuses to users.
-
-| Flag | Description |
-|:--|:--|
-| Malicious | This public key has been observed acting in bad faith. |
-| Retired | This public key is no longer in use. |
-|  |  |
-|  |  |
-
-## Help
-
-If you need help creating an oracle profile, you can find it in [the Vega forum](https://community.vega.xyz/).
-
-You are also welcome to make suggestions or highlight problems by [raising an issue](https://github.com/vegaprotocol/well-known/issues/new).
+TODO: list tools and apps that use this repo and surface the data
