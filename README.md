@@ -99,7 +99,7 @@ Apps on the Vega network may choose to expose these statuses to users.
 
 | Flag | Description |
 |:--|:--|
-| Unknown | This public key's proofs have not been verified yet. |
+| Unknown | This public key's proofs have not been verified yet, or no proofs have been provided yet. |
 | Good | This public key's proofs have been verified. |
 | Suspicious | This public key is suspected to be acting in bad faith, pending investigation. |
 | Malicious | This public key has been observed acting in bad faith. |
