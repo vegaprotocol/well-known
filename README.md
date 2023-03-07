@@ -104,9 +104,9 @@ Apps on the Vega network may choose to expose these statuses to users.
 | Suspicious | This public key is suspected to be acting in bad faith, pending investigation. |
 | Malicious | This public key has been observed acting in bad faith. |
 | Retired | This public key is no longer in use. |
-| Compromised | This public key has been  |
+| Compromised | This public key is no longer in the control of its original owners. |
 
-## Help
+## Help and issues
 
 If you need help creating an oracle profile, you can find it in [the Vega forum](https://community.vega.xyz/).
 
