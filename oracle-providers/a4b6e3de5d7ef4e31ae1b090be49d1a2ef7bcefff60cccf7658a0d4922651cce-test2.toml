@@ -1,0 +1,42 @@
+name = "Matts Test 2 Oracle"
+url ="https://google.com"
+description_md = """
+# Markdown describing the oracle provider
+
+Some markdown describing the oracle provider.
+
+Twitter: @FacesPics2
+"""
+isTestNetworkOnly = true # optional flag to indicate if market should or should not be used by applications connected to mainnet
+
+[oracle]
+public_key = "a4b6e3de5d7ef4e31ae1b090be49d1a2ef7bcefff60cccf7658a0d4922651cce"
+status =  "SUSPICIOUS"
+status_reason = "Some proofs currently offline"
+first_verified = 2022-01-01T00:00:00Z
+last_verified = 2022-12-31T00:00:00Z
+
+[[proofs]]
+type = "twitter"
+format = "URL"
+url = "https://twitter.com/vegaprotocol/status/956833487230730241"
+available = true
+
+[[proofs]]
+type = "web"
+format = "URL"
+url = "https://acme.io/proof.txt"
+available = true
+
+[[proofs]]
+type = "github"
+format = "URL"
+url = "https://github.com/mattrussell36/somerepo"
+available = true
+
+[[proofs]]
+type = "key"
+format = "signed_message"
+pubkey = "a4b6e3de5d7ef4e31ae1b090be49d1a2ef7bcefff60cccf7658a0d4922651cce"
+message = "BLRRS0IdYMfGYP/Biu5l8/uuaeH68WwH2l13poJliL9cixcLYpuK46Lts6rtafNdVqEI6jVoQkwT17BUQHsvDw="
+available = true

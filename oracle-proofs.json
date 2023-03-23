@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Matts Test 1 Oracle",
+    "url": "https://google.com",
+    "description_md": "# Markdown describing the oracle provider\n\nSome markdown describing the oracle provider.\n\nTwitter: @FacesPics2\n",
+    "oracle": {
+      "public_key": "70d14a321e02e71992fd115563df765000ccc4775cbe71a0e2f9ff5a3b9dc680",
+      "status": "GOOD",
+      "status_reason": "",
+      "first_verified": "2022-01-01T00:00:00.000Z",
+      "last_verified": "2022-12-31T00:00:00.000Z"
+    },
+    "proofs": [
+      {
+        "type": "twitter",
+        "format": "URL",
+        "url": "https://twitter.com/vegaprotocol/status/956833487230730241",
+        "available": true
+      },
+      {
+        "type": "web",
+        "format": "URL",
+        "url": "https://acme.io/proof.txt",
+        "available": true
+      },
+      {
+        "type": "github",
+        "format": "URL",
+        "url": "https://github.com/mattrussell36/somerepo",
+        "available": true
+      },
+      {
+        "type": "key",
+        "format": "signed_message",
+        "pubkey": "70d14a321e02e71992fd115563df765000ccc4775cbe71a0e2f9ff5a3b9dc680",
+        "message": "1tW+4ogc7OKDGNZQdOdE98vZvIwzh/di5iW8vzKD7fezr4LQ87Wh/AA0zeRa1G9YHyYaW2CZ9VHC6KsS2Bi9Aw=",
+        "available": true
+      }
+    ]
+  },
+  {
+    "name": "Matts Test 2 Oracle",
+    "url": "https://google.com",
+    "description_md": "# Markdown describing the oracle provider\n\nSome markdown describing the oracle provider.\n\nTwitter: @FacesPics2\n",
+    "oracle": {
+      "public_key": "a4b6e3de5d7ef4e31ae1b090be49d1a2ef7bcefff60cccf7658a0d4922651cce",
+      "status": "SUSPICIOUS",
+      "status_reason": "Some proofs currently offline",
+      "first_verified": "2022-01-01T00:00:00.000Z",
+      "last_verified": "2022-12-31T00:00:00.000Z"
+    },
+    "proofs": [
+      {
+        "type": "twitter",
+        "format": "URL",
+        "url": "https://twitter.com/vegaprotocol/status/956833487230730241",
+        "available": true
+      },
+      {
+        "type": "web",
+        "format": "URL",
+        "url": "https://acme.io/proof.txt",
+        "available": true
+      },
+      {
+        "type": "github",
+        "format": "URL",
+        "url": "https://github.com/mattrussell36/somerepo",
+        "available": true
+      },
+      {
+        "type": "key",
+        "format": "signed_message",
+        "pubkey": "a4b6e3de5d7ef4e31ae1b090be49d1a2ef7bcefff60cccf7658a0d4922651cce",
+        "message": "BLRRS0IdYMfGYP/Biu5l8/uuaeH68WwH2l13poJliL9cixcLYpuK46Lts6rtafNdVqEI6jVoQkwT17BUQHsvDw=",
+        "available": true
+      }
+    ]
+  }
+]
