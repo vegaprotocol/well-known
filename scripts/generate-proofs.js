@@ -11,6 +11,7 @@ const PROOF_SCHEMA = z.object({
   url: z.string().url(),
   description_md: z.string(),
   oracle: z.object({
+    id: z.string().min(1),
     public_key: z.string(),
     status: z.enum([
       "UNKNOWN",

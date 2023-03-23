@@ -10,6 +10,7 @@ Twitter: @FacesPics2
 isTestNetworkOnly = true # optional flag to indicate if market should or should not be used by applications connected to mainnet
 
 [oracle]
+id = "invalidid"
 public_key = "70d14a321e02e71992fd115563df765000ccc4775cbe71a0e2f9ff5a3b9dc680"
 status =  "GOOD"
 status_reason = ""
