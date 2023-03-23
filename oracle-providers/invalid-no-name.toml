@@ -1,0 +1,49 @@
+name = ""
+status = "GOOD" # Top level status for the "user". A user can have multiple identities
+status_reason = ""
+trusted = true
+url = "https://github.com/daun"
+description_markdown = """
+# Markdown describing the oracle provider
+
+Some markdown describing the oracle provider.
+
+Twitter: @FacesPics2
+"""
+isTestNetworkOnly = true
+
+[[identities]]
+type = "PubKey"
+key = "69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f"
+status = "GOOD" # Status of this users identity. A user could be GOOD, but have a COMPROMISED identity
+status_reason = ""
+
+[[identities.proofs]]
+type = "Url"
+url = "https://acme.io/proof.txt"
+first_verified = 2022-01-01T00:00:00Z
+last_verified = 2022-12-31T00:00:00Z
+
+[[identities.proofs]]
+type = "SignedMessage"
+message = "some hex"
+first_verified = 2022-01-01T00:00:00Z
+last_verified = 2022-12-31T00:00:00Z
+
+[[identities]]
+type = "ETHAddress"
+address = "0x949AF81E51D57831AE52591d17fBcdd1014a5f52"
+status = "GOOD"
+status_reason = ""
+
+[[identities.proofs]]
+type = "Url"
+url = "https://twitter.com/user/tweet/etc"
+first_verified = 2022-01-01T00:00:00Z
+last_verified = 2022-12-31T00:00:00Z
+
+[[identities.proofs]]
+type = "SignedMessage"
+message = "some hex"
+first_verified = 2022-01-01T00:00:00Z
+last_verified = 2022-12-31T00:00:00Z

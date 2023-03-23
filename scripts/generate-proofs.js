@@ -6,35 +6,57 @@ const z = require("zod");
 const PROOFS_DIR = path.join(__dirname, "..", "oracle-providers");
 const OUTPUT_FILE = path.join(__dirname, "..", "oracle-proofs.json");
 
-const PROOF_SCHEMA = z.object({
-  name: z.string().min(1),
-  url: z.string().url(),
-  description_md: z.string(),
-  oracle: z.object({
-    id: z.string().min(1),
-    public_key: z.string(),
-    status: z.enum([
-      "UNKNOWN",
-      "GOOD",
-      "SUSPICIOUS",
-      "MALICIOUS",
-      "RETIRED",
-      "COMPROMISED",
-    ]),
-    status_reason: z.string(),
-    first_verified: z.date(),
-    last_verified: z.date(),
+const STATUS = z.enum([
+  "UNKNOWN",
+  "GOOD",
+  "SUSPICIOUS",
+  "MALICIOUS",
+  "RETIRED",
+  "COMPROMISED",
+]);
+
+const BASE_PROOF_SCHEMA = z.object({
+  first_verified: z.date(),
+  last_verified: z.date(),
+});
+
+const PROOF_SCHEMA = z.discriminatedUnion("type", [
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("SignedMessage"),
+    message: z.string(),
   }),
-  proofs: z.array(
-    z.object({
-      type: z.string(),
-      format: z.enum(["URL", "signed_message"]),
-      url: z.string().optional(),
-      pubkey: z.string().optional(),
-      message: z.string().optional(),
-      available: z.boolean(),
-    })
-  ),
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("Url"),
+    url: z.string().url(),
+  }),
+]);
+
+const BASE_IDENTITY_SCHEMA = z.object({
+  status: STATUS,
+  status_reason: z.string(),
+  proofs: z.array(PROOF_SCHEMA),
+});
+
+const IDENTITY_SCHEMA = z.discriminatedUnion("type", [
+  BASE_IDENTITY_SCHEMA.extend({
+    type: z.literal("PubKey"),
+    key: z.string().min(64), // TODO check chars
+  }),
+  BASE_IDENTITY_SCHEMA.extend({
+    type: z.literal("ETHAddress"),
+    address: z.string().min(42), // TODO check chars
+  }),
+]);
+
+const PROVIDER_SCHEMA = z.object({
+  name: z.string().min(1),
+  status: STATUS,
+  status_reason: z.string(),
+  trusted: z.boolean(),
+  url: z.string().url(),
+  description_markdown: z.string(),
+  isTestNetworkOnly: z.boolean().optional(),
+  identities: z.array(IDENTITY_SCHEMA),
 });
 
 function run() {
@@ -64,7 +86,10 @@ function run() {
 
     // If it passes zod validation push it to result data, otherwise skip it
     try {
-      const validatedData = PROOF_SCHEMA.parse(data);
+      const validatedData = PROVIDER_SCHEMA.parse(data);
+      validatedData[
+        "github_link"
+      ] = `https://raw.githubusercontent.com/vegaprotocol/well-known/feat/add-process-script/oracle-providers/${file}`;
 
       // Add to array which will be written to json file
       result.push(validatedData);
@@ -85,16 +110,6 @@ function isFileValid(file) {
   // Only use toml files
   if (!file.endsWith(".toml")) {
     return "invalid extension";
-  }
-
-  const [pubkey, name] = file.split("-");
-
-  if (pubkey.length !== 64 || !/^[A-Fa-f0-9]*$/i.test(pubkey)) {
-    return "invalid filename convention: pubkey";
-  }
-
-  if (!name?.length) {
-    return "invalid filename convention: proof name";
   }
 
   return true;
