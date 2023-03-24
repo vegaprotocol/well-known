@@ -49,6 +49,6 @@
         "address": "0x949AF81E51D57831AE52591d17fBcdd1014a5f52"
       }
     ],
-    "github_link": "https://raw.githubusercontent.com/vegaprotocol/well-known/feat/add-process-script/oracle-providers/dauns-oracle.toml"
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/dauns-oracle.toml"
   }
 ]

@@ -89,7 +89,7 @@ function run() {
       const validatedData = PROVIDER_SCHEMA.parse(data);
       validatedData[
         "github_link"
-      ] = `https://raw.githubusercontent.com/vegaprotocol/well-known/feat/add-process-script/oracle-providers/${file}`;
+      ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
 
       // Add to array which will be written to json file
       result.push(validatedData);
