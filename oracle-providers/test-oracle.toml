@@ -1,8 +1,8 @@
-name = "Daun's oracle inc"
+name = "Test oracle"
 status = "GOOD" # Top level status for the "user". A user can have multiple identities
 status_reason = ""
 trusted = true
-url = "https://github.com/daun"
+url = "https://myorcle.com"
 description_markdown = """
 # Markdown describing the oracle provider
 
@@ -10,7 +10,6 @@ Some markdown describing the oracle provider.
 
 Twitter: @FacesPics2
 """
-isTestNetworkOnly = true
 
 [[identities]]
 type = "PubKey"
