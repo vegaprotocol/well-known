@@ -21,15 +21,18 @@ const BASE_PROOF_SCHEMA = z.object({
   available: z.boolean(),
 });
 
+const ETH_ADDRESS_SCHEMA = z.string().regex(/^0x[a-fA-F0-9]{40}$/g);
+const PUBLIC_KEY_SCHEMA = z.string().regex(/[a-fA-F0-9]{64}/g);
+
 const PROOF_SCHEMA = z.discriminatedUnion("type", [
   BASE_PROOF_SCHEMA.extend({
     type: z.literal("public_key"),
-    public_key: z.string().min(64),
+    public_key: PUBLIC_KEY_SCHEMA,
     message: z.string().min(1),
   }),
   BASE_PROOF_SCHEMA.extend({
     type: z.literal("eth_address"),
-    eth_address: z.string().min(42),
+    eth_address: ETH_ADDRESS_SCHEMA,
     message: z.string().min(1),
   }),
   BASE_PROOF_SCHEMA.extend({
@@ -56,11 +59,11 @@ const BASE_ORACLE_SCHEMA = z.object({
 const ORACLE_SCHEMA = z.discriminatedUnion("type", [
   BASE_ORACLE_SCHEMA.extend({
     type: z.literal("public_key"),
-    public_key: z.string().min(64), // TODO check chars
+    public_key: PUBLIC_KEY_SCHEMA,
   }),
   BASE_ORACLE_SCHEMA.extend({
     type: z.literal("eth_address"),
-    eth_address: z.string().min(42), // TODO check chars
+    eth_address: ETH_ADDRESS_SCHEMA,
   }),
 ]);
 
@@ -69,7 +72,7 @@ const PROVIDER_SCHEMA = z.object({
   url: z.string().url(),
   description_markdown: z.string(),
   oracle: ORACLE_SCHEMA,
-  proofs: z.array(PROOF_SCHEMA),
+  proofs: z.array(PROOF_SCHEMA).nonempty(),
 });
 
 function run() {
@@ -79,38 +82,22 @@ function run() {
   // Loop through each file in directory
   proofFiles.forEach((file) => {
     console.log("parsing", file);
-    const validityResult = isFileValid(file);
+    const validityResult = isFileNameValid(file);
     const warn = (msg) => console.warn(`${file}: ${msg}`);
 
     if (validityResult !== true) {
-      warn(validityResult);
-      return;
+      throw new Error(validityResult);
     }
 
     const rawFile = fs.readFileSync(path.join(PROOFS_DIR, file), "utf8");
+    const data = toml.parse(rawFile);
+    const validatedData = PROVIDER_SCHEMA.parse(data);
+    validatedData[
+      "github_link"
+    ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
 
-    let data;
-
-    try {
-      data = toml.parse(rawFile);
-    } catch (err) {
-      warn("invalid toml");
-      return;
-    }
-
-    // If it passes zod validation push it to result data, otherwise skip it
-    try {
-      const validatedData = PROVIDER_SCHEMA.parse(data);
-      validatedData[
-        "github_link"
-      ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
-
-      // Add to array which will be written to json file
-      result.push(validatedData);
-    } catch (error) {
-      warn("validation failed");
-      return;
-    }
+    // Add to array which will be written to json file
+    result.push(validatedData);
   });
 
   // Make the output dir if it doesnt exist
@@ -123,17 +110,25 @@ function run() {
     JSON.stringify(result, null, 2),
     (error) => {
       if (error) {
-        console.log(error);
         throw new Error(`Failed to write ${OUTPUT_FILE}`);
       }
     }
   );
 }
 
-function isFileValid(file) {
+function isFileNameValid(file) {
   // Only use toml files
   if (!file.endsWith(".toml")) {
     return "invalid extension";
+  }
+
+  const fileWithoutExtension = file.replace(/\.toml$/, "");
+  const [type, value] = fileWithoutExtension.split("-");
+
+  if (type === "public_key") {
+    PUBLIC_KEY_SCHEMA.parse(value);
+  } else if (type === "eth_address") {
+    ETH_ADDRESS_SCHEMA.parse(value);
   }
 
   return true;
