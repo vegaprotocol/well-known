@@ -1,0 +1,14 @@
+{
+  "name": "well-known",
+  "version": "1.0.0",
+  "repository": "git@github.com:vegaprotocol/well-known.git",
+  "author": "Matthew Russell <mattrussell36@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "toml": "^3.0.0",
+    "zod": "^3.21.4"
+  },
+  "scripts": {
+    "process": "node scripts/process-oracle-providers"
+  }
+}
