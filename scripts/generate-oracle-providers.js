@@ -4,7 +4,8 @@ const toml = require("toml");
 const z = require("zod");
 
 const PROOFS_DIR = path.join(__dirname, "..", "oracle-providers");
-const OUTPUT_FILE = path.join(__dirname, "..", "oracle-proofs.json");
+const OUTPUT_FILE = "oracle-proofs.json";
+const OUTPUT_DIR = path.join(__dirname, "..", "__generated__");
 
 const STATUS = z.enum([
   "UNKNOWN",
@@ -112,11 +113,21 @@ function run() {
     }
   });
 
-  fs.writeFile(OUTPUT_FILE, JSON.stringify(result, null, 2), (error) => {
-    if (error) {
-      throw new Error(`Failed to write ${OUTPUT_FILE}`);
+  // Make the output dir if it doesnt exist
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+
+  fs.writeFile(
+    path.join(OUTPUT_DIR, OUTPUT_FILE),
+    JSON.stringify(result, null, 2),
+    (error) => {
+      if (error) {
+        console.log(error);
+        throw new Error(`Failed to write ${OUTPUT_FILE}`);
+      }
     }
-  });
+  );
 }
 
 function isFileValid(file) {
