@@ -86,34 +86,18 @@ function run() {
     const warn = (msg) => console.warn(`${file}: ${msg}`);
 
     if (validityResult !== true) {
-      warn(validityResult);
-      return;
+      throw new Error(validityResult);
     }
 
     const rawFile = fs.readFileSync(path.join(PROOFS_DIR, file), "utf8");
+    const data = toml.parse(rawFile);
+    const validatedData = PROVIDER_SCHEMA.parse(data);
+    validatedData[
+      "github_link"
+    ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
 
-    let data;
-
-    try {
-      data = toml.parse(rawFile);
-    } catch (err) {
-      warn("invalid toml");
-      return;
-    }
-
-    // If it passes zod validation push it to result data, otherwise skip it
-    try {
-      const validatedData = PROVIDER_SCHEMA.parse(data);
-      validatedData[
-        "github_link"
-      ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
-
-      // Add to array which will be written to json file
-      result.push(validatedData);
-    } catch (error) {
-      warn("validation failed");
-      return;
-    }
+    // Add to array which will be written to json file
+    result.push(validatedData);
   });
 
   // Make the output dir if it doesnt exist
@@ -126,7 +110,6 @@ function run() {
     JSON.stringify(result, null, 2),
     (error) => {
       if (error) {
-        console.log(error);
         throw new Error(`Failed to write ${OUTPUT_FILE}`);
       }
     }
@@ -142,14 +125,10 @@ function isFileNameValid(file) {
   const fileWithoutExtension = file.replace(/\.toml$/, "");
   const [type, value] = fileWithoutExtension.split("-");
 
-  try {
-    if (type === "public_key") {
-      PUBLIC_KEY_SCHEMA.parse(value);
-    } else if (type === "eth_address") {
-      ETH_ADDRESS_SCHEMA.parse(value);
-    }
-  } catch {
-    return `invalid value for ${type} in filename`;
+  if (type === "public_key") {
+    PUBLIC_KEY_SCHEMA.parse(value);
+  } else if (type === "eth_address") {
+    ETH_ADDRESS_SCHEMA.parse(value);
   }
 
   return true;
