@@ -21,15 +21,18 @@ const BASE_PROOF_SCHEMA = z.object({
   available: z.boolean(),
 });
 
+const ETH_ADDRESS_SCHEMA = z.string().regex(/^0x[a-fA-F0-9]{40}$/g);
+const PUBLIC_KEY_SCHEMA = z.string().regex(/[a-fA-F0-9]{64}/g);
+
 const PROOF_SCHEMA = z.discriminatedUnion("type", [
   BASE_PROOF_SCHEMA.extend({
     type: z.literal("public_key"),
-    public_key: z.string().min(64),
+    public_key: PUBLIC_KEY_SCHEMA,
     message: z.string().min(1),
   }),
   BASE_PROOF_SCHEMA.extend({
     type: z.literal("eth_address"),
-    eth_address: z.string().min(42),
+    eth_address: ETH_ADDRESS_SCHEMA,
     message: z.string().min(1),
   }),
   BASE_PROOF_SCHEMA.extend({
@@ -56,11 +59,11 @@ const BASE_ORACLE_SCHEMA = z.object({
 const ORACLE_SCHEMA = z.discriminatedUnion("type", [
   BASE_ORACLE_SCHEMA.extend({
     type: z.literal("public_key"),
-    public_key: z.string().min(64), // TODO check chars
+    public_key: PUBLIC_KEY_SCHEMA,
   }),
   BASE_ORACLE_SCHEMA.extend({
     type: z.literal("eth_address"),
-    eth_address: z.string().min(42), // TODO check chars
+    eth_address: ETH_ADDRESS_SCHEMA,
   }),
 ]);
 
@@ -79,7 +82,7 @@ function run() {
   // Loop through each file in directory
   proofFiles.forEach((file) => {
     console.log("parsing", file);
-    const validityResult = isFileValid(file);
+    const validityResult = isFileNameValid(file);
     const warn = (msg) => console.warn(`${file}: ${msg}`);
 
     if (validityResult !== true) {
@@ -130,10 +133,23 @@ function run() {
   );
 }
 
-function isFileValid(file) {
+function isFileNameValid(file) {
   // Only use toml files
   if (!file.endsWith(".toml")) {
     return "invalid extension";
+  }
+
+  const fileWithoutExtension = file.replace(/\.toml$/, "");
+  const [type, value] = fileWithoutExtension.split("-");
+
+  try {
+    if (type === "public_key") {
+      PUBLIC_KEY_SCHEMA.parse(value);
+    } else if (type === "eth_address") {
+      ETH_ADDRESS_SCHEMA.parse(value);
+    }
+  } catch {
+    return `invalid value for ${type} in filename`;
   }
 
   return true;
