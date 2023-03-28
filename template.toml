@@ -7,9 +7,9 @@ Some markdown describing the oracle provider.
 
 Twitter: @FacesPics2
 """
-isTestNetworkOnly = true # optional flag to indicate if market should or should not be used by applications connected to mainnet
 
 [oracle]
+type = "public_key | eth_address"
 public_key = "69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f"
 status = "UNKNOWN|GOOD|SUSPICIOUS|MALICIOUS|RETIRED|COMPROMISED"
 status_reason = "Some proofs currently offline" # char limit, allow limited Markdown eg links
@@ -27,46 +27,46 @@ last_verified = 2022-12-31T00:00:00Z
 
 [[proofs]]
 type = "twitter"
-format = "URL"
+format = "url"
 url = "https://twitter.com/vegaprotocol/status/956833487230730241"
 available = true
 
 [[proofs]]
 type = "web"
-format = "URL"
+format = "url"
 url = "https://acme.io/proof.txt"
 available = true
 
 [[proofs]]
 type = "github"
-format = "URL"
+format = "url"
 url = "https://github.com/......."
 available = true
 
 [[proofs]]
-type = "key"
+type = "public_key"
 format = "signed_message"
-pubkey = "pubkeyA"
+public_key= "pubkeyA"
 message = "SOMEHEX"
 available = true
 
 [[proofs]]
-type = "key"
+type = "public_key"
 format = "signed_message"
-pubkey = "pubkeyB"
+public_key= "pubkeyB"
 message = "SOMEHEX"
 available = true
 
 [[proofs]]
-type = "ethereumAddress"
+type = "eth_address"
 format = "signed_message"
-address = "addressA"
+eth_address = "addressA"
 message = "SOMEHEX"
 available = true
 
 [[proofs]]
 type = "linkedin"
-format = "URL"
+format = "url"
 url = "https://linkedin.com/......."
 available = true
 
