@@ -15,13 +15,32 @@ const STATUS = z.enum([
   "COMPROMISED",
 ]);
 
+const BASE_PROOF_SCHEMA = z.object({
+  format: z.enum(["url", "signed_message"]),
+  available: z.boolean(),
+});
+
 const PROOF_SCHEMA = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("SignedMessage"),
-    message: z.string(),
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("public_key"),
+    public_key: z.string().min(64),
+    message: z.string().min(1),
   }),
-  z.object({
-    type: z.literal("Url"),
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("eth_address"),
+    eth_address: z.string().min(42),
+    message: z.string().min(1),
+  }),
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("web"),
+    url: z.string().url(),
+  }),
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("github"),
+    url: z.string().url(),
+  }),
+  BASE_PROOF_SCHEMA.extend({
+    type: z.literal("twitter"),
     url: z.string().url(),
   }),
 ]);
@@ -29,28 +48,27 @@ const PROOF_SCHEMA = z.discriminatedUnion("type", [
 const BASE_ORACLE_SCHEMA = z.object({
   status: STATUS,
   status_reason: z.string(),
-  proofs: z.array(PROOF_SCHEMA),
   first_verified: z.date(),
   last_verified: z.date(),
 });
 
 const ORACLE_SCHEMA = z.discriminatedUnion("type", [
   BASE_ORACLE_SCHEMA.extend({
-    type: z.literal("PubKey"),
-    key: z.string().min(64), // TODO check chars
+    type: z.literal("public_key"),
+    public_key: z.string().min(64), // TODO check chars
   }),
   BASE_ORACLE_SCHEMA.extend({
-    type: z.literal("ETHAddress"),
-    address: z.string().min(42), // TODO check chars
+    type: z.literal("eth_address"),
+    eth_address: z.string().min(42), // TODO check chars
   }),
 ]);
 
 const PROVIDER_SCHEMA = z.object({
   name: z.string().min(1),
-  trusted: z.boolean(),
   url: z.string().url(),
   description_markdown: z.string(),
-  oracles: z.array(ORACLE_SCHEMA),
+  oracle: ORACLE_SCHEMA,
+  proofs: z.array(PROOF_SCHEMA),
 });
 
 function run() {
@@ -59,6 +77,7 @@ function run() {
 
   // Loop through each file in directory
   proofFiles.forEach((file) => {
+    console.log("parsing", file);
     const validityResult = isFileValid(file);
     const warn = (msg) => console.warn(`${file}: ${msg}`);
 
@@ -83,7 +102,8 @@ function run() {
       const validatedData = PROVIDER_SCHEMA.parse(data);
       validatedData[
         "github_link"
-      ] = `https://github.com/vegaprotocol/well-known/blob/feat/add-process-script/oracle-providers/${file}`;
+      ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
+
       // Add to array which will be written to json file
       result.push(validatedData);
     } catch (error) {
