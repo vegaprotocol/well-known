@@ -9,6 +9,6 @@
     "zod": "^3.21.4"
   },
   "scripts": {
-    "generate": "node scripts/generate-oracle-providers"
+    "process": "node scripts/process-oracle-providers"
   }
 }

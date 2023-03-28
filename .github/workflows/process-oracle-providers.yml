@@ -22,7 +22,7 @@ jobs:
       - name: Install root dependencies
         run: yarn install
       - name: Process oracle providers
-        run: npm run generate
+        run: npm run process
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "chore: process oracle providers"
