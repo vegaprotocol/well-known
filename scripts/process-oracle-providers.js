@@ -72,7 +72,7 @@ const PROVIDER_SCHEMA = z.object({
   url: z.string().url(),
   description_markdown: z.string(),
   oracle: ORACLE_SCHEMA,
-  proofs: z.array(PROOF_SCHEMA),
+  proofs: z.array(PROOF_SCHEMA).nonempty(),
 });
 
 function run() {
