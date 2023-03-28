@@ -1,4 +1,4 @@
-name = "Another oracle"
+name = "Test oracle"
 url ="https://zombo.com"
 description_markdown = """
 Some markdown describing the oracle provider.
