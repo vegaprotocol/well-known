@@ -1,9 +1,9 @@
 name = "Test oracle"
 url ="https://zombo.com"
-description_markdown = """
+description_markdown = "The Vega Fairground admin oracle, uses a json file to settle based on coinbase price of assets."
 Some markdown describing the oracle provider.
 
-Twitter: @FacesPics2
+Twitter: @VegaFairground
 """
 
 [oracle]
@@ -23,7 +23,7 @@ available = true
 [[proofs]]
 type = "web"
 format = "url"
-url = "https://acme.io/proof.txt"
+url = "https://fairground.wtf/"
 available = true
 
 [[proofs]]
@@ -42,6 +42,6 @@ available = true
 [[proofs]]
 type = "eth_address"
 format = "signed_message"
-eth_address = "0x949AF81E51D57831AE52591d17fBcdd1014a5f52"
+eth_address = "0x0b38D0e7391CF427d309991A110a84daF37114eF"
 message = "SOMEHEX"
 available = true
