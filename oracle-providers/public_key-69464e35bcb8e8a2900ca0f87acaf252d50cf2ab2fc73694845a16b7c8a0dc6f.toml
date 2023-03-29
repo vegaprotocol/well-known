@@ -1,6 +1,7 @@
 name = "Test oracle"
 url ="https://zombo.com"
-description_markdown = "The Vega Fairground admin oracle, uses a json file to settle based on coinbase price of assets."
+description_markdown = """
+The Vega Fairground admin oracle, uses a json file to settle based on coinbase price of assets."
 Some markdown describing the oracle provider.
 
 Twitter: @VegaFairground
