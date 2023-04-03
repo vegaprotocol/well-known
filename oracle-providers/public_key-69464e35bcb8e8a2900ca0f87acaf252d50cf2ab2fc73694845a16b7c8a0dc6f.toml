@@ -1,8 +1,8 @@
 name = "Test oracle"
 url ="https://zombo.com"
 description_markdown = """
-The Vega Fairground admin oracle, uses a json file to settle based on coinbase price of assets.
-Some markdown describing the oracle provider.
+The Vega Fairground admin oracle, uses a json file to settle based on Binance Spot price.
+E.g. in case the market is BTC/USDC the spot price for BTC/USDC on Binance will be used.
 
 Twitter: @VegaFairground
 """
