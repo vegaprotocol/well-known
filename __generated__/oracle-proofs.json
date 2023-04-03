@@ -23,8 +23,8 @@
     "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC.toml"
   },
   {
-    "name": "Test oracle",
-    "url": "https://zombo.com",
+    "name": "Vega Admin Oracle for Testnet",
+    "url": "https://fairground.wtf",
     "description_markdown": "The Vega Fairground admin oracle, uses a json file to settle based on Binance Spot price.\nE.g. in case the market is BTC/USDC the spot price for BTC/USDC on Binance will be used.\n\nTwitter: @VegaFairground\n",
     "oracle": {
       "status": "GOOD",
