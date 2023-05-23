@@ -1,23 +1,22 @@
 [
   {
-    "name": "Test oracle",
-    "url": "https://zombo.com",
-    "description_markdown": "Some markdown describing the oracle provider.\n\nTwitter: @FacesPics2\n",
+    "name": "Coinbase Oracle",
+    "url": "https://coinbase.com",
+    "description_markdown": "# Coinbase Oracle\n\nCoinbase is a leading cryptocurrency exchange that provides an API serving signed oracle data in OpenOracle format. See the [API documentation[(https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for more details.\n\n_Note that although it remains supported, Coinbase Oracle appears relatively unmaintained. For example, it does not seem to gain support for new assets as they are listed on Coinbase and the docs no longer confirm the public key of the signer. The proof provided links to a prior version of the docs that confirms the key on archive.org and has been experimentally verified against the API results served at the time of this update._\n",
     "oracle": {
       "status": "GOOD",
       "status_reason": "",
-      "first_verified": "2023-02-28T00:00:00.000Z",
-      "last_verified": "2023-02-28T00:00:00.000Z",
+      "first_verified": "2023-05-22T00:00:00.000Z",
+      "last_verified": "2023-05-22T00:00:00.000Z",
       "type": "eth_address",
       "eth_address": "0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC"
     },
     "proofs": [
       {
-        "format": "signed_message",
+        "format": "url",
         "available": true,
-        "type": "eth_address",
-        "eth_address": "0x949AF81E51D57831AE52591d17fBcdd1014a5f52",
-        "message": "SOMEHEX"
+        "type": "web",
+        "url": "https://web.archive.org/web/20200923175817/https://docs.pro.coinbase.com/#oracle"
       }
     ],
     "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC.toml"
