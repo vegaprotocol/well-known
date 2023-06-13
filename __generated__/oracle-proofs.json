@@ -2,7 +2,7 @@
   {
     "name": "Coinbase Oracle",
     "url": "https://coinbase.com",
-    "description_markdown": "# Coinbase Oracle\n\nCoinbase is a leading cryptocurrency exchange that provides an API serving signed oracle data in OpenOracle format. See the [API documentation[(https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for more details.\n\n_Note that although it remains supported, Coinbase Oracle appears relatively unmaintained. For example, it does not seem to gain support for new assets as they are listed on Coinbase and the docs no longer confirm the public key of the signer. The proof provided links to a prior version of the docs that confirms the key on archive.org and has been experimentally verified against the API results served at the time of this update._\n",
+    "description_markdown": "# Coinbase Oracle\n\nCoinbase is a leading cryptocurrency exchange that provides an API serving signed oracle data in OpenOracle format. See the [API documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for more details.\n\n_Note that although it remains supported, Coinbase Oracle appears relatively unmaintained. For example, it does not seem to gain support for new assets as they are listed on Coinbase and the docs no longer confirm the public key of the signer. The proof provided links to a prior version of the docs that confirms the key on archive.org and has been experimentally verified against the API results served at the time of this update._\n",
     "oracle": {
       "status": "GOOD",
       "status_reason": "",
