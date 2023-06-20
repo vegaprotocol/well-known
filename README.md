@@ -18,7 +18,7 @@ Profiles are also used to flag potential issues with oracles or reasons to doubt
 ## Data stored here
 
 - [Oracle providers](./oracle-providers/): details about public keys of known oracle providers
-- [Template](./oracle-providers/template.toml): template file for new profile submissions
+- [Template](template.toml): template file for new profile submissions
 
 ## Disclaimer
 
@@ -28,7 +28,7 @@ Anyone can contribute to it and no representations or warranties of any kind are
 
 ## Quick start: creating an oracle profile
 
-1. Copy the [template oracle profile](./oracle-providers/template.toml)
+1. Copy the [template oracle profile](template.toml)
 2. Use the oracle's public key or ethereum address as the filename. For example `public-key_<pubkey>` or `ehthereum-address_<address>`
 3. Populate the template with the oracle details
 4. Optional: Provide [proofs](#proofs) for social media accounts
