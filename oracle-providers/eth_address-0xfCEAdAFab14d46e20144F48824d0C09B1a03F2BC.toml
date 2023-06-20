@@ -1,0 +1,23 @@
+name = "Coinbase Oracle"
+url ="https://coinbase.com"
+description_markdown = """
+# Coinbase Oracle
+
+Coinbase is a leading cryptocurrency exchange that provides an API serving signed oracle data in OpenOracle format. See the [API documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for more details.
+
+_Note that although it remains supported, Coinbase Oracle appears relatively unmaintained. For example, it does not seem to gain support for new assets as they are listed on Coinbase and the docs no longer confirm the public key of the signer. The proof provided links to a prior version of the docs that confirms the key on archive.org and has been experimentally verified against the API results served at the time of this update._
+"""
+
+[oracle]
+type = "eth_address"
+eth_address= "0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC"
+status = "GOOD"
+status_reason = ""
+first_verified = 2023-05-22T00:00:00Z
+last_verified = 2023-05-22T00:00:00Z
+
+[[proofs]]
+type = "web"
+format = "url"
+url = "https://web.archive.org/web/20200923175817/https://docs.pro.coinbase.com/#oracle"
+available = true

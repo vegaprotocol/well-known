@@ -1,0 +1,48 @@
+name = "Vega Admin Oracle for Testnet"
+url ="https://fairground.wtf"
+description_markdown = """
+The Vega Fairground admin oracle, uses a json file to settle based on Binance Spot price.
+E.g. in case the market is BTC/USDC the spot price for BTC/USDC on Binance will be used.
+
+Twitter: @VegaFairground
+"""
+
+[oracle]
+type = "public_key"
+public_key = "69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f"
+status = "GOOD"
+status_reason = ""
+first_verified = 2022-01-01T00:00:00Z
+last_verified = 2022-12-31T00:00:00Z
+
+[[proofs]]
+type = "twitter"
+format = "url"
+url = "https://twitter.com/vegaprotocol/status/956833487230730241"
+available = true
+
+[[proofs]]
+type = "web"
+format = "url"
+url = "https://fairground.wtf/"
+available = true
+
+[[proofs]]
+type = "github"
+format = "url"
+url = "https://github.com"
+available = true
+
+[[proofs]]
+type = "public_key"
+format = "signed_message"
+public_key = "69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f"
+message = "SOMEHEX"
+available = true
+
+[[proofs]]
+type = "eth_address"
+format = "signed_message"
+eth_address = "0x0b38D0e7391CF427d309991A110a84daF37114eF"
+message = "SOMEHEX"
+available = true
