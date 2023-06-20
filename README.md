@@ -9,16 +9,22 @@ Oracle profiles are an optional, extra layer of information about oracles on the
 - URL
 - [Proofs](#proofs), like verified social media accounts
 
-Oracle developers can use profiles to explain their methodology and demonstrate their reputation, to build trust.
+Oracle developers can use profiles to explain their methodology and demonstrate their reputation.
 
 Apps on the Vega network can include profiles to help users make decisions about markets.
 
-Profiles are also used to flag oracle performance issues.
+Profiles are also used to flag potential issues with oracles or reasons to doubt their legitimacy.
 
 ## Data stored here
 
 - [Oracle providers](./oracle-providers/): details about public keys of known oracle providers
 - [Template](./oracle-providers/template.toml): template file for new profile submissions
+
+## Disclaimer
+
+This repository is for data regarding oracles used in markets on the Vega trading platform.
+
+Anyone can contribute to it and no representations or warranties of any kind are made by any party about the accuracy of the information contained in it.
 
 ## Quick start: creating an oracle profile
 
@@ -27,6 +33,8 @@ Profiles are also used to flag oracle performance issues.
 3. Populate the template with the oracle details
 4. Optional: Provide [proofs](#proofs) for social media accounts
 3. Open a pull request and mark it as ready for review
+
+The Vega project team will review the contents of the PRs and if able to verify the proofs contained therein will merge it.  This does not constitute an endorsement of the oracle, and does not imply the community should trust it.  All it demonstrates is that the proofs are independently verifiable and this verification could (and should) be repeated by individuals within the community.
 
 When merged, the details in the file may be shown alongside other oracle info in apps on the Vega network.
 
@@ -50,7 +58,7 @@ The following markdown formatting is accepted:
 ### Proofs
 Link to [signed messages](#how-to-sign-a-message) on websites and social media accounts to associate them with the oracle. Each proof is verified by a panel of repo admins.
 
-You are welcome to submit any kind of proof. Common proofs include:
+Oracle providers are welcome to submit any kind of proof. Common proofs include:
 
 - **Twitter**\
 Link to a tweet containing the Twitter username as a signed message
@@ -62,10 +70,7 @@ Link to a comment in [the Vega Protocol Discord channel](https://discord.com/cha
 Link to a comment in [the Vega forum](https://community.vega.xyz/) containing the forum username as a signed message
 - **GitHub**\
 Link to a file in a GitHub repo containing  the GitHub username as a signed message
-- **Vega or Ethereum key/address**\
-???
-- **ETH or other decentralised address/domain name**\
-???
+
 
 ## How to sign a message
 
