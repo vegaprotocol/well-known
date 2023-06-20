@@ -9,7 +9,10 @@ This is a repository for maintaining data about well known entities to the Vega 
 
 ## Disclaimer
 
-TODO: disclaimer about the data here and verification processes, and possibility it's wrong or outdated
+This repository is for data regarding oracles used in markets on the Vega trading platform.
+
+Anyone can contribute to it and no representations or warranties of any kind are made by any party about the accuracy of the information contained in it.
+
 
 ## Using this repository
 
