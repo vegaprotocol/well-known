@@ -1,44 +1,120 @@
-# well-known
+# Vega Oracle Profiles
 
 This is a repository for maintaining data about well known entities to the Vega community.
+
+Oracle profiles are an optional, extra layer of information about oracles on the Vega network, including:
+
+- Oracle name
+- Description
+- URL
+- [Proofs](#proofs), like verified social media accounts
+
+Oracle developers can use profiles to explain their methodology and demonstrate their reputation.
+
+Apps on the Vega network can include profiles to help users make decisions about markets.
+
+Profiles are also used to flag potential issues with oracles or reasons to doubt their legitimacy.
 
 ## Data stored here
 
 - [Oracle providers](./oracle-providers/): details about public keys of known oracle providers
-- [Compiled oracle provider data](./__generated__/oracle-proofs.json): The same details but validated and compiled into a single file so that apps can easily fetch the data and link back to it
+- [Template](./oracle-providers/template.toml): template file for new profile submissions
 
 ## Disclaimer
 
-TODO: disclaimer about the data here and verification processes, and possibility it's wrong or outdated
+This repository is for data regarding oracles used in markets on the Vega trading platform.
 
-## Using this repository
+Anyone can contribute to it and no representations or warranties of any kind are made by any party about the accuracy of the information contained in it.
 
-TODO: rules for adding and changing data, reviewing PRs, etc.
+## Quick start: creating an oracle profile
 
-### Generating oracle proof JSON
+1. Copy the [template oracle profile](./oracle-providers/template.toml)
+2. Use the oracle's public key or ethereum address as the filename. For example `public-key_<pubkey>` or `ehthereum-address_<address>`
+3. Populate the template with the oracle details
+4. Optional: Provide [proofs](#proofs) for social media accounts
+3. Open a pull request and mark it as ready for review
 
-The [process-oracle-providers](./scripts/process-oracle-providers.js) script will run on every PR via a [github action](./.github/workflows/process-oracle-providers.yml) to ensure the format of the .toml file is correct and to compile all oracle providers into a single JSON file for easy consumption by other apps.
+The Vega project team will review the contents of the PRs and if able to verify the proofs contained therein will merge it.  This does not constitute an endorsement of the oracle, and does not imply the community should trust it.  All it demonstrates is that the proofs are independently verifiable and this verification could (and should) be repeated by individuals within the community.
 
-#### Running manually
+When merged, the details in the file may be shown alongside other oracle info in apps on the Vega network.
 
-Install [NodeJS](https://nodejs.org/en)
+## Submission guidelines
 
-Install [Yarn](https://classic.yarnpkg.com/en/)
+### Public key
+The public key defined in the market proposal.
 
-Install dependencies
+As one key can act as an oracle for multiple markets, the oracle profile may be associated with more than one market.
+
+### Description
+The following markdown formatting is accepted:
+
+- Headings
+- Links
+- Bold
+- Underline
+- Italic
+- Strikethrough
+
+### Proofs
+Link to [signed messages](#how-to-sign-a-message) on websites and social media accounts to associate them with the oracle. Each proof is verified by a panel of repo admins.
+
+Oracle providers are welcome to submit any kind of proof. Common proofs include:
+
+- **Twitter**\
+Link to a tweet containing the Twitter username as a signed message
+- **Website**\
+Link to a .txt file, at the website root, containing the website URL as a signed message
+- **Discord**\
+Link to a comment in [the Vega Protocol Discord channel](https://discord.com/channels/720571334798737489/) containing the Discord username as a signed message
+- **Vega forums**\
+Link to a comment in [the Vega forum](https://community.vega.xyz/) containing the forum username as a signed message
+- **GitHub**\
+Link to a file in a GitHub repo containing  the GitHub username as a signed message
+
+
+## How to sign a message
+
+The keypair used to sign the message must match the public key in the oracle profile and market spec.
+
+### VEGA Desktop Wallet
+1. Open your Vega desktop wallet
+2. Click the keypair you want to use
+3. Enter your message in the text area
+4. Click ‘sign’
+5. Click the signed message to copy it to your clipboard
+
+### VEGA CLI Wallet
+To generate a signed message using local wallet, run the following command:
+
+#### MacOS & Linux
 
 ```
-yarn install
+./vegawallet sign --key ReplaceWithTheOraclePublicKey --wallet ReplaceWithTheWalletUsername --message ReplaceWithTheMessage
 ```
 
-Run with
+#### Windows
 
 ```
-npm run process
+vegawallet sign --key ReplaceWithTheOraclePublicKey --wallet ReplaceWithTheWalletUsername --message ReplaceWithTheMessage
 ```
 
-## Tools and apps incorporating this data
+## Status
 
-### Console
+Apps on the Vega network may choose to expose these statuses to users.
 
-The Console trading application uses the generated oracle json to provide links on market pages back to this repo. This allows users of Vega to independently verify data sources.
+| Flag | Description |
+|:--|:--|
+| Unknown | This public key's proofs have not been verified yet, or no proofs have been provided yet. |
+| Good | This public key's proofs have been verified. |
+| Suspicious | This public key is suspected to be acting in bad faith, pending investigation. |
+| Malicious | This public key has been observed acting in bad faith. |
+| Retired | This public key is no longer in use. |
+| Compromised | This public key is no longer in the control of its original owners. |
+
+
+## Help and issues
+
+If you need help creating an oracle profile, you can find it in [the Vega forum](https://community.vega.xyz/).
+
+You are also welcome to make suggestions or highlight problems by [raising an issue](https://github.com/vegaprotocol/well-known/issues/new).
+
