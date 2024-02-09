@@ -1,0 +1,23 @@
+name = "Pyth Oracle"
+url ="https://pyth.network"
+description_markdown = """
+# The Pyth oracles contract
+
+Pyth network provide many oracles prices.
+"""
+
+[oracle]
+source_chain = "Ethereum"
+source_chain_id = "1"
+type = "eth_address"
+eth_address= "0x2880ab155794e7179c9ee2e38200202908c17b43"
+status = "GOOD"
+status_reason = ""
+first_verified = 2023-05-22T00:00:00Z
+last_verified = 2023-05-22T00:00:00Z
+
+[[proofs]]
+type = "web"
+format = "url"
+url = "https://gnosisscan.io/address/0x2880ab155794e7179c9ee2e38200202908c17b43#code"
+available = true
