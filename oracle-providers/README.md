@@ -17,7 +17,7 @@ Profiles are also used to flag potential issues with oracles or reasons to doubt
 
 ## Data stored here
 
-- [Oracle providers](./oracle-providers/): details about public keys of known oracle providers
+- [Oracle providers](./oracle-providers/oracle-profiles): details about public keys of known oracle providers
 - [Template](./template.toml): template file for new profile submissions
 
 ## Disclaimer
