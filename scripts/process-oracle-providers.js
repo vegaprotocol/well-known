@@ -3,7 +3,7 @@ const path = require("path");
 const toml = require("toml");
 const z = require("zod");
 
-const PROOFS_DIR = path.join(__dirname, "..", "oracle-providers");
+const PROOFS_DIR = path.join(__dirname, "..", "oracle-providers/oracle-profiles");
 const OUTPUT_FILE = "oracle-proofs.json";
 const OUTPUT_DIR = path.join(__dirname, "..", "__generated__");
 
@@ -94,7 +94,7 @@ function run() {
     const validatedData = PROVIDER_SCHEMA.parse(data);
     validatedData[
       "github_link"
-    ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
+    ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/${file}`;
 
     // Add to array which will be written to json file
     result.push(validatedData);
