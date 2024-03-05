@@ -1,5 +1,7 @@
+APIs
 CLI
 Ethereum
 keypair
 MacOS
+readme
 Strike-through
