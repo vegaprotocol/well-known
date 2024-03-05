@@ -1,5 +1,71 @@
 [
   {
+    "name": "Pyth Oracle",
+    "url": "https://pyth.network",
+    "description_markdown": "# The Pyth oracles contract\n\nPyth network provide many oracles prices.\n",
+    "oracle": {
+      "status": "GOOD",
+      "status_reason": "",
+      "first_verified": "2023-05-22T00:00:00.000Z",
+      "last_verified": "2023-05-22T00:00:00.000Z",
+      "type": "eth_address",
+      "eth_address": "0x2880ab155794e7179c9ee2e38200202908c17b43"
+    },
+    "proofs": [
+      {
+        "format": "url",
+        "available": true,
+        "type": "web",
+        "url": "https://gnosisscan.io/address/0x2880ab155794e7179c9ee2e38200202908c17b43#code"
+      }
+    ],
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0x2880ab155794e7179c9ee2e38200202908c17b43.toml"
+  },
+  {
+    "name": "Pyth rebased prices oracle",
+    "url": " https://github.com/vegaprotocol/pyth-rebase-contract",
+    "description_markdown": "# Pyth rebased prices oracle\n\nA simple contract providing prices from the pyth on chain oracles quoted in USDT\n",
+    "oracle": {
+      "status": "GOOD",
+      "status_reason": "",
+      "first_verified": "2023-05-22T00:00:00.000Z",
+      "last_verified": "2023-05-22T00:00:00.000Z",
+      "type": "eth_address",
+      "eth_address": "0x719abd606155442c21b7d561426d42bd0e40a776"
+    },
+    "proofs": [
+      {
+        "format": "url",
+        "available": true,
+        "type": "web",
+        "url": "https://gnosisscan.io/address/0x719abd606155442c21b7d561426d42bd0e40a776#code"
+      }
+    ],
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0x719abd606155442c21b7d561426d42bd0e40a776.toml"
+  },
+  {
+    "name": "Uniswap price sources",
+    "url": "https://github.com/jeremyletang/uniswap_price_source",
+    "description_markdown": "# Uniswap price source\n\nA smart contract providing prices from uniswap v3 pools\n",
+    "oracle": {
+      "status": "GOOD",
+      "status_reason": "",
+      "first_verified": "2023-05-22T00:00:00.000Z",
+      "last_verified": "2023-05-22T00:00:00.000Z",
+      "type": "eth_address",
+      "eth_address": "0xBEDBC6302eAFFd4032Dd1DF94e326F7ecb9Ff4f9"
+    },
+    "proofs": [
+      {
+        "format": "url",
+        "available": true,
+        "type": "web",
+        "url": "https://etherscan.io/address/0xbedbc6302eaffd4032dd1df94e326f7ecb9ff4f9#code"
+      }
+    ],
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0xbedbc6302eaffd4032dd1df94e326f7ecb9ff4f9.toml"
+  },
+  {
     "name": "Coinbase Oracle",
     "url": "https://coinbase.com",
     "description_markdown": "# Coinbase Oracle\n\nCoinbase is a leading cryptocurrency exchange that provides an API serving signed oracle data in OpenOracle format. See the [API documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for more details.\n\n_Note that although it remains supported, Coinbase Oracle appears relatively unmaintained. For example, it does not seem to gain support for new assets as they are listed on Coinbase and the docs no longer confirm the public key of the signer. The proof provided links to a prior version of the docs that confirms the key on archive.org and has been experimentally verified against the API results served at the time of this update._\n",
