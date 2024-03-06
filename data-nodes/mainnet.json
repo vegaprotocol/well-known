@@ -1,0 +1,87 @@
+{
+  "name": "mainnet",
+  "chainid": "vega-mainnet-0011",
+  "testnet": false,
+  "nodes": [
+    {
+      "name": "Commodum",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "tls://vega-mainnet-data-grpc.commodum.io:443",
+      "rest": "https://vega-mainnet-data.commodum.io",
+      "graphql": "https://vega-mainnet-data.commodum.io/graphql"
+    },
+    {
+      "name": "Nodes Guru",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "vega-data.nodes.guru:3007",
+      "rest": "https://vega-data.nodes.guru:3008",
+      "graphql": "https://vega-data.nodes.guru:3008/graphql"
+    },
+    {
+      "name": "BHarvest",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "vega-data.bharvest.io:3007",
+      "rest": "https://vega-data.bharvest.io",
+      "graphql": "https://vega-data.bharvest.io/graphql"
+    },
+    {
+      "name": "Path Rock Network",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "datanode.vega.pathrocknetwork.org:3007",
+      "rest": "https://datanode.vega.pathrocknetwork.org",
+      "graphql": "https://datanode.vega.pathrocknetwork.org/graphql"
+    },
+    {
+      "name": "Aurora Edge",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "tls://vega-grpc.aurora-edge.com:443",
+      "rest": "https://vega.aurora-edge.com",
+      "graphql": "https://vega.aurora-edge.com/graphql"
+    },
+    {
+      "name": "Darling",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "darling.network:3007",
+      "rest": "https://darling.network",
+      "graphql": "https://darling.network/graphql"
+    },
+    {
+      "name": "Velvet P2P",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "tls://grpc.velvet.tm.p2p.org:443",
+      "rest": "https://rest.velvet.tm.p2p.org",
+      "grpahql": "https://gql.velvet.tm.p2p.org/graphql"
+    },
+    {
+      "name": "Lovali",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "vega-grpc.mainnet.lovali.xyz:3007",
+      "rest": "https://vega-rest.mainnet.lovali.xyz",
+      "graphql": "https://vega-query.mainnet.lovali.xyz/graphql"
+    },
+    {
+      "name": "AnyValid",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "vega-mainnet.anyvalid.com:3007",
+      "rest": "https://vega-mainnet.anyvalid.com",
+      "graphql": "https://vega-mainnet.anyvalid.com/graphql"
+    },
+    {
+      "name": "Staking Cabin",
+      "status": "enabled",
+      "health": 1,
+      "grpc": "vega.mainnet.stakingcabin.com:3007",
+      "rest": "https://vega.mainnet.stakingcabin.com:3008",
+      "graphql": "https://vega.mainnet.stakingcabin.com:3008/query"
+    }
+  ]
+}

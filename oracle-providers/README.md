@@ -15,11 +15,6 @@ Apps on the Vega network can include profiles to help users make decisions about
 
 Profiles are also used to flag potential issues with oracles or reasons to doubt their legitimacy.
 
-## Data stored here
-
-- [Oracle providers](./oracle-providers/oracle-profiles): details about public keys of known oracle providers
-- [Template](./template.toml): template file for new profile submissions
-
 ## Disclaimer
 
 This repository is for data regarding oracles used in markets on the Vega trading platform.
@@ -28,9 +23,35 @@ Anyone can contribute to it and no representations or warranties of any kind are
 
 ## Quick start: creating an oracle profile
 
-1. Copy the [template oracle profile](./template.toml)
-1. Use the oracle's public key or Ethereum address as the filename. For example `public-key_<pubkey>` or `ehthereum-address_<address>`
-1. Populate the template with the oracle details
+Example oracle proof:
+
+```
+{
+  "name": "Pyth Oracle",
+  "url": "https://pyth.network",
+  "description_markdown": "# The Pyth oracles contract\n\nPyth network provide many oracles prices.\n",
+  "oracle": {
+    "status": "GOOD",
+    "status_reason": "",
+    "first_verified": "2023-05-22T00:00:00.000Z",
+    "last_verified": "2023-05-22T00:00:00.000Z",
+    "type": "eth_address",
+     "eth_address": "0x2880ab155794e7179c9ee2e38200202908c17b43"
+  },
+  "proofs": [
+    {
+      "format": "url",
+      "available": true,
+      "type": "web",
+      "url": "https://gnosisscan.io/address/0x2880ab155794e7179c9ee2e38200202908c17b43#code"
+    }
+  ],
+  "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x2880ab155794e7179c9ee2e38200202908c17b43.toml"
+}
+```
+
+1. Use the template above and fill in the desired oracle information
+1. Add it to the oracle-proofs.json file (watch out for commas!)
 1. Optional: Provide [proofs](#proofs) for social media accounts
 1. Open a pull request and mark it as ready for review
 
