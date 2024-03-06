@@ -79,8 +79,11 @@ function run() {
   const result = [];
   const proofFiles = fs.readdirSync(PROOFS_DIR);
 
-  // Loop through each file in directory
-  proofFiles.forEach((file) => {
+  const tomlFiles = proofFiles.filter(file => {
+    return path.extname(file) === '.toml'
+  });
+
+  tomlFiles.forEach((file) => {
     console.log("parsing", file);
     const validityResult = isFileNameValid(file);
     const warn = (msg) => console.warn(`${file}: ${msg}`);
