@@ -3,7 +3,7 @@ const path = require("path");
 const toml = require("toml");
 const z = require("zod");
 
-const PROOFS_DIR = path.join(__dirname, "..", "oracle-providers/oracle-profiles");
+const PROOFS_DIR = path.join(__dirname, "..", "oracle-providers");
 const OUTPUT_FILE = "oracle-proofs.json";
 const OUTPUT_DIR = path.join(__dirname, "..", "__generated__");
 
@@ -79,8 +79,11 @@ function run() {
   const result = [];
   const proofFiles = fs.readdirSync(PROOFS_DIR);
 
-  // Loop through each file in directory
-  proofFiles.forEach((file) => {
+  const tomlFiles = proofFiles.filter(file => {
+    return path.extname(file) === '.toml'
+  });
+
+  tomlFiles.forEach((file) => {
     console.log("parsing", file);
     const validityResult = isFileNameValid(file);
     const warn = (msg) => console.warn(`${file}: ${msg}`);
@@ -94,7 +97,7 @@ function run() {
     const validatedData = PROVIDER_SCHEMA.parse(data);
     validatedData[
       "github_link"
-    ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/${file}`;
+    ] = `https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/${file}`;
 
     // Add to array which will be written to json file
     result.push(validatedData);
