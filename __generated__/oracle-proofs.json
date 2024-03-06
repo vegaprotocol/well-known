@@ -19,7 +19,7 @@
         "url": "https://gnosisscan.io/address/0x2880ab155794e7179c9ee2e38200202908c17b43#code"
       }
     ],
-    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0x2880ab155794e7179c9ee2e38200202908c17b43.toml"
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x2880ab155794e7179c9ee2e38200202908c17b43.toml"
   },
   {
     "name": "Pyth rebased prices oracle",
@@ -41,7 +41,7 @@
         "url": "https://gnosisscan.io/address/0x719abd606155442c21b7d561426d42bd0e40a776#code"
       }
     ],
-    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0x719abd606155442c21b7d561426d42bd0e40a776.toml"
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x719abd606155442c21b7d561426d42bd0e40a776.toml"
   },
   {
     "name": "Uniswap price sources",
@@ -63,7 +63,7 @@
         "url": "https://etherscan.io/address/0xbedbc6302eaffd4032dd1df94e326f7ecb9ff4f9#code"
       }
     ],
-    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0xbedbc6302eaffd4032dd1df94e326f7ecb9ff4f9.toml"
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0xbedbc6302eaffd4032dd1df94e326f7ecb9ff4f9.toml"
   },
   {
     "name": "Coinbase Oracle",
@@ -85,7 +85,7 @@
         "url": "https://web.archive.org/web/20200923175817/https://docs.pro.coinbase.com/#oracle"
       }
     ],
-    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/eth_address-0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC.toml"
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC.toml"
   },
   {
     "name": "Vega Admin Oracle for Testnet",
@@ -133,6 +133,6 @@
         "message": "SOMEHEX"
       }
     ],
-    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/oracle-profiles/public_key-69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f.toml"
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/public_key-69464e35bcb8e8a2900ca0f87acaf252d50cf2ab2fc73694845a16b7c8a0dc6f.toml"
   }
 ]
