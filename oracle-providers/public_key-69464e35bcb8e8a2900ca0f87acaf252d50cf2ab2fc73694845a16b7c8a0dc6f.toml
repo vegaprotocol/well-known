@@ -1,4 +1,5 @@
 name = "Vega Admin Oracle for Testnet"
+type = "UNKNOWN"
 url ="https://fairground.wtf"
 description_markdown = """
 The Vega Fairground admin oracle, uses a json file to settle based on Binance Spot price.

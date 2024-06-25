@@ -1,4 +1,5 @@
 name = "Coinbase Oracle"
+type = "COINBASE"
 url ="https://coinbase.com"
 description_markdown = """
 # Coinbase Oracle
