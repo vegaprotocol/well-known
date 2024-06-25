@@ -1,10 +1,10 @@
 name = "Pyth rebased prices oracle"
 type = "PYTH"
-url =" https://github.com/vegaprotocol/pyth-rebase-contract"
+url = "https://pyth.network"
 description_markdown = """
 # Pyth rebased prices oracle
 
-A simple contract providing prices from the pyth on chain oracles quoted in USDT
+A simple contract providing prices from the pyth on chain oracles quoted in USDT (reference implementation: https://github.com/vegaprotocol/pyth-rebase-contract)
 """
 
 [oracle]
