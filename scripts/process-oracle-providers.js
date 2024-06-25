@@ -16,6 +16,13 @@ const STATUS = z.enum([
   "COMPROMISED",
 ]);
 
+const PROVIDER_TYPE = z.enum([
+  "UNKNOWN",
+  "PYTH",
+  "COINBASE",
+  "UNISWAP",
+]);
+
 const BASE_PROOF_SCHEMA = z.object({
   format: z.enum(["url", "signed_message"]),
   available: z.boolean(),
@@ -69,6 +76,7 @@ const ORACLE_SCHEMA = z.discriminatedUnion("type", [
 
 const PROVIDER_SCHEMA = z.object({
   name: z.string().min(1),
+  type: PROVIDER_TYPE,
   url: z.string().url(),
   description_markdown: z.string(),
   oracle: ORACLE_SCHEMA,

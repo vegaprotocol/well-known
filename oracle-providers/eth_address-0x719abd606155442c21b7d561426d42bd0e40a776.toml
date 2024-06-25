@@ -1,4 +1,5 @@
 name = "Pyth rebased prices oracle"
+type = "PYTH"
 url =" https://github.com/vegaprotocol/pyth-rebase-contract"
 description_markdown = """
 # Pyth rebased prices oracle
