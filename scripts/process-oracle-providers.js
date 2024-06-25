@@ -21,6 +21,7 @@ const PROVIDER_TYPE = z.enum([
   "PYTH",
   "COINBASE",
   "UNISWAP",
+  "UMA",
 ]);
 
 const BASE_PROOF_SCHEMA = z.object({

@@ -1,0 +1,24 @@
+name = "UMA settlement oracle"
+type = "UMA"
+url = "https://uma.xyz"
+description_markdown = """
+# UMA settlement oracle
+
+A simple contract providing prices from the UMA on chain oracles (reference implementation: https://github.com/vegaprotocol/uma-oracle-contract-template)
+"""
+
+[oracle]
+source_chain = "arbitrum"
+source_chain_id = "42161"
+type = "eth_address"
+eth_address= "0x302461E6dBF45e59acb3BE9a9c84C0a997779612"
+status = "GOOD"
+status_reason = ""
+first_verified = 2024-06-25T00:00:00Z
+last_verified = 2024-06-25T00:00:00Z
+
+[[proofs]]
+type = "web"
+format = "url"
+url = "https://arbiscan.io/address/0x302461E6dBF45e59acb3BE9a9c84C0a997779612#code"
+available = true
