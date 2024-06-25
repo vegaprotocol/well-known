@@ -1,6 +1,6 @@
 name = "Pyth Oracle"
 type = "PYTH"
-url ="https://pyth.network"
+url = "https://pyth.network"
 description_markdown = """
 # The Pyth oracles contract
 

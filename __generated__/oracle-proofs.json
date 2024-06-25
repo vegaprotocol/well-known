@@ -25,8 +25,8 @@
   {
     "name": "Pyth scaled rebased prices oracle",
     "type": "PYTH",
-    "url": " https://github.com/vegaprotocol/pyth-rebase-contract",
-    "description_markdown": "# Pyth scaled rebased prices oracle\n\nA simple contract providing scaled prices from the pyth on chain oracles quoted in USDT\n",
+    "url": "https://pyth.network",
+    "description_markdown": "# Pyth scaled rebased prices oracle\n\nA simple contract providing scaled prices from the pyth on chain oracles quoted in USDT (reference implementation: https://github.com/vegaprotocol/pyth-rebase-contract)\n",
     "oracle": {
       "status": "GOOD",
       "status_reason": "",
@@ -48,8 +48,8 @@
   {
     "name": "Pyth rebased prices oracle",
     "type": "PYTH",
-    "url": " https://github.com/vegaprotocol/pyth-rebase-contract",
-    "description_markdown": "# Pyth rebased prices oracle\n\nA simple contract providing prices from the pyth on chain oracles quoted in USDT\n",
+    "url": "https://pyth.network",
+    "description_markdown": "# Pyth rebased prices oracle\n\nA simple contract providing prices from the pyth on chain oracles quoted in USDT (reference implementation: https://github.com/vegaprotocol/pyth-rebase-contract)\n",
     "oracle": {
       "status": "GOOD",
       "status_reason": "",
