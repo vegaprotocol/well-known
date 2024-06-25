@@ -46,6 +46,29 @@
     "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x2BA6654FdB605637994047ecA217a02E224c4828.toml"
   },
   {
+    "name": "UMA settlement oracle",
+    "type": "UMA",
+    "url": "https://uma.xyz",
+    "description_markdown": "# UMA settlement oracle\n\nA simple contract providing prices from the UMA on chain oracles (reference implementation: https://github.com/vegaprotocol/uma-oracle-contract-template)\n",
+    "oracle": {
+      "status": "GOOD",
+      "status_reason": "",
+      "first_verified": "2024-06-25T00:00:00.000Z",
+      "last_verified": "2024-06-25T00:00:00.000Z",
+      "type": "eth_address",
+      "eth_address": "0x302461E6dBF45e59acb3BE9a9c84C0a997779612"
+    },
+    "proofs": [
+      {
+        "format": "url",
+        "available": true,
+        "type": "web",
+        "url": "https://arbiscan.io/address/0x302461E6dBF45e59acb3BE9a9c84C0a997779612#code"
+      }
+    ],
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x302461E6dBF45e59acb3BE9a9c84C0a997779612.toml"
+  },
+  {
     "name": "Pyth rebased prices oracle",
     "type": "PYTH",
     "url": "https://pyth.network",
