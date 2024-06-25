@@ -1,6 +1,7 @@
 [
   {
     "name": "Pyth Oracle",
+    "type": "PYTH",
     "url": "https://pyth.network",
     "description_markdown": "# The Pyth oracles contract\n\nPyth network provide many oracles prices.\n",
     "oracle": {
@@ -22,7 +23,31 @@
     "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x2880ab155794e7179c9ee2e38200202908c17b43.toml"
   },
   {
+    "name": "Pyth scaled rebased prices oracle",
+    "type": "PYTH",
+    "url": " https://github.com/vegaprotocol/pyth-rebase-contract",
+    "description_markdown": "# Pyth scaled rebased prices oracle\n\nA simple contract providing scaled prices from the pyth on chain oracles quoted in USDT\n",
+    "oracle": {
+      "status": "GOOD",
+      "status_reason": "",
+      "first_verified": "2024-06-25T00:00:00.000Z",
+      "last_verified": "2024-06-25T00:00:00.000Z",
+      "type": "eth_address",
+      "eth_address": "0x2BA6654FdB605637994047ecA217a02E224c4828"
+    },
+    "proofs": [
+      {
+        "format": "url",
+        "available": true,
+        "type": "web",
+        "url": "https://gnosisscan.io/address/0x2BA6654FdB605637994047ecA217a02E224c4828#code"
+      }
+    ],
+    "github_link": "https://github.com/vegaprotocol/well-known/blob/main/oracle-providers/eth_address-0x2BA6654FdB605637994047ecA217a02E224c4828.toml"
+  },
+  {
     "name": "Pyth rebased prices oracle",
+    "type": "PYTH",
     "url": " https://github.com/vegaprotocol/pyth-rebase-contract",
     "description_markdown": "# Pyth rebased prices oracle\n\nA simple contract providing prices from the pyth on chain oracles quoted in USDT\n",
     "oracle": {
@@ -45,6 +70,7 @@
   },
   {
     "name": "Uniswap price sources",
+    "type": "UNISWAP",
     "url": "https://github.com/jeremyletang/uniswap_price_source",
     "description_markdown": "# Uniswap price source\n\nA smart contract providing prices from uniswap v3 pools\n",
     "oracle": {
@@ -67,6 +93,7 @@
   },
   {
     "name": "Coinbase Oracle",
+    "type": "COINBASE",
     "url": "https://coinbase.com",
     "description_markdown": "# Coinbase Oracle\n\nCoinbase is a leading cryptocurrency exchange that provides an API serving signed oracle data in OpenOracle format. See the [API documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for more details.\n\n_Note that although it remains supported, Coinbase Oracle appears relatively unmaintained. For example, it does not seem to gain support for new assets as they are listed on Coinbase and the docs no longer confirm the public key of the signer. The proof provided links to a prior version of the docs that confirms the key on archive.org and has been experimentally verified against the API results served at the time of this update._\n",
     "oracle": {
@@ -89,6 +116,7 @@
   },
   {
     "name": "Vega Admin Oracle for Testnet",
+    "type": "UNKNOWN",
     "url": "https://fairground.wtf",
     "description_markdown": "The Vega Fairground admin oracle, uses a json file to settle based on Binance Spot price.\nE.g. in case the market is BTC/USDC the spot price for BTC/USDC on Binance will be used.\n\nTwitter: @VegaFairground\n",
     "oracle": {
